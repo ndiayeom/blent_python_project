@@ -57,3 +57,20 @@ def edit_cart():
         return jsonify({'error': "Product not found."}), 404
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+@app.route('/cart', methods=['DELETE'])
+def remove_from_cart():
+    try:
+        body = request.get_json()
+        if not check_fields(body, {'id'}):
+            return jsonify({'error': "Missing fields"}), 400
+
+        for i, item in enumerate(cart):
+            if item['id'] == body['id']:
+               del cart[i]
+               return jsonify({}), 200
+        
+        return jsonify({'error': "Product not found."}), 404
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+

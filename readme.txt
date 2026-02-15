@@ -33,6 +33,7 @@ curl -X POST http://127.0.0.1:5000/cart -H "Content-Type: application/json" -d '
 curl -X POST http://127.0.0.1:5000/cart -H "Content-Type: application/json" -d '{"id": "je8zng"}'
 curl -X PATCH http://127.0.0.1:5000/cart -H "Content-Type: application/json" -d '{"id": "aaaaa", "quantity": 1}'
 curl -X PATCH http://127.0.0.1:5000/cart -H "Content-Type: application/json" -d '{"id": "je8zng", "quantity": 10}'
+curl -X DELETE http://127.0.0.1:5000/cart -H "Content-Type: application/json" -d '{"id": "je8zng"}'
 
 ================================================================================================
 curl -i http://127.0.0.1:5000
