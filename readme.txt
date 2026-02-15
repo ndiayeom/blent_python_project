@@ -8,7 +8,7 @@ git remote add origin https://ndiayeom@bitbucket.org/ndiayeom/blent_python_proje
 git push -u origin main
 zuXXCFwfjeRULGsWkd4u
 
-===============================
+===============================================================================
 …or create a new repository on the command line
 echo "# blent_python_project" >> README.md
 git init
@@ -23,3 +23,14 @@ git push -u origin main
 git remote add origin https://github.com/ndiayeom/blent_python_project.git
 git branch -M main
 git push -u origin main
+================================================================================================
+alias flask="/home/blent/.local/bin/flask"
+================================================================================================
+curl -i http://127.0.0.1:5000
+curl -i http://127.0.0.1:5000/cart
+curl -X POST http://127.0.0.1:5000/cart -H "Content-Type: application/json" -d '{"id": "je8zng", "quantity": 1}'
+
+================================================================================================
+curl -i http://127.0.0.1:5000
+================================================================================================
+flask run --debug

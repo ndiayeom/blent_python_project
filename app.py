@@ -1,0 +1,32 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+cart = []
+
+@app.route('/')
+def hello_world():
+    return "Coucou !"
+
+@app.route('/cart', methods=['GET'])
+def list_cart():
+    return jsonify(cart), 200
+
+@app.route('/cart', methods=['POST'])
+def add_to_cart():
+    try:
+        body = request.get_json()
+        if 'id' not in body.keys() or 'quantity' not in body.keys():
+            return jsonify({'error': "Missing fields"}), 400
+
+        for i, item in enumerate(cart):
+            if item['id'] == body['id']:
+                cart[i]['quantity'] += int(body['quantity'])
+                return jsonify({}), 200
+        
+        cart.append(body)
+        return jsonify({}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+

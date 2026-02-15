@@ -1,1 +1,2 @@
 pip install sqlalchemy
+pip install flask requests
